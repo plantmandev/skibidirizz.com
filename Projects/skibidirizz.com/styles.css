@@ -1,0 +1,43 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.background {
+  background-color: #343434;
+}
+
+.video-container {
+  position: relative; /* Relative positioning for the container */
+  height: 100vh; /* Full height of the viewport */
+  display: flex; /* Using flexbox to align children */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  overflow: hidden; /* Hide anything going out of the box */
+}
+
+/* Styles for the video element */
+#backgroundVideo {
+  width: auto; /* Auto width to maintain aspect ratio */
+  height: 100%; /* Full height to match the container */
+  object-fit: cover; /* Cover the container fully */
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black; /* Ensure the text is visible */
+  text-align: center;
+  z-index: 2; /* Content must be above the overlay */
+}
+
+h1 {
+  font-size: 4em;
+}
+
+p {
+  font-size: 2em;
+}

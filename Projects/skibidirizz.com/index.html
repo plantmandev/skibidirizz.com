@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="video-container">
+      <video id="backgroundVideo" autoplay muted loop>
+        <!-- Video sources will be loaded by JavaScript -->
+      </video>
+    </div>
+
+    <button onclick="playVideo()">Play Video</button>
+    <button onclick="pauseVideo()">Pause Video</button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the video element
+        var video = document.getElementById("backgroundVideo");
+
+        // List of video files
+        const videoList = [
+          "./resources/skibidi-505.mp4",
+          "./resources/skibidi-cigarette-daydreams.mp4",
+        ];
+
+        // Function to select a random video from the list
+        function randomVideo(arr) {
+          const randomIndex = Math.floor(Math.random() * arr.length); // Generate a random index
+          return arr[randomIndex];
+        }
+
+        // Set the video source to a randomly selected video
+        const selectedVideo = randomVideo(videoList);
+        video.src = selectedVideo;
+
+        // Optionally, play the video (if autoplay fails, this will help as a fallback)
+        video
+          .play()
+          .catch((error) => console.log("Error playing the video:", error));
+
+        // Output selected video to the console
+        console.log(selectedVideo); // Log the path of the randomly selected video
+      });
+
+      // Get the video element
+      var video = document.getElementById("myVideo");
+
+      // Function to play the video
+      function playVideo() {
+        video.play();
+      }
+
+      // Function to pause the video
+      function pauseVideo() {
+        video.pause();
+      }
+    </script>
+  </body>
+</html>
